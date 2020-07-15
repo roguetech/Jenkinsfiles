@@ -27,10 +27,11 @@ pipeline {
     stages {
         stage('Run') {
             steps {
-                script {
+                sh '''#!/usr/bin/env /bin/bash
                   echo "Analysing the changes"
                   JSON='{"source_env": "'$GIT_BRANCH'"}'
                   echo $JSON
+                 '''
                 }
             }
         }
