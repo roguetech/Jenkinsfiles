@@ -27,9 +27,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    dir('mis-qa-db-refresh') {
-                    }
+                    dir('mis-qa-db-refresh') {  
                 }
             }
         }
@@ -40,7 +38,7 @@ pipeline {
                 dir('mis-qa-db-refresh') {
                   echo "Analysing the changes"
                   sh '''#!/usr/bin/env /bin/bash
-                  echo "test"
+                    echo "test"
                   '''
                 }
             }
