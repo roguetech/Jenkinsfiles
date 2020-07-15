@@ -28,9 +28,6 @@ pipeline {
         stage('Run') {
             steps {
                   echo "Analysing the changes"
-                  sh '''#!/usr/bin/env /bin/bash
-                    echo "test"
-                  '''
             }
         }
     }
