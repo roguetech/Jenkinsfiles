@@ -28,6 +28,7 @@ pipeline {
         stage('Run') {
             steps {
                   echo "Analysing the changes"
+                  echo $GIT_BRANCH
             }
         }
     }
