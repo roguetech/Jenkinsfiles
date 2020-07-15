@@ -1,49 +1,28 @@
-def NODE_LABEL = 'master'
-def SCM_URL = 'git@' + env.GITLAB_SERVER + ':configuration/aws-functions.git'
-def SCM_VARS = null
-def SCM_IDENIFIER = '0f462594-06c0-49ca-bba3-210135a8cc89'
-
-node('master') {
-
-}
-
 pipeline {
-    agent none
-
-    options {
-        disableConcurrentBuilds()
-        skipDefaultCheckout false
-        timeout(time: 60, unit: 'MINUTES')
-    }
-
-    environment {
-        BRANCH_NAME = null
-    }
-
-    parameters {
-        choice(name: 'GIT_BRANCH', choices: ['master', ''], description: 'The branch to checkout for non shared qa specific code')
-    }
-
+    agent any
     stages {
-        stage('Run') {
+        stage('Test') {
             steps {
-                sh "echo \"Hello World\""
+                sh 'echo "Fail!"; exit 1'
             }
         }
     }
-
     post {
-        failure {
-            echo "failed"
+        always {
+            echo 'This will always run'
         }
         success {
-            echo "success"
-            build job: 'test'
+            echo 'This will run only if successful'
         }
-        always {
-            node(NODE_LABEL) {
-                cleanWs()
-            }
+        failure {
+            echo 'This will run only if failed'
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
-  }
+}
