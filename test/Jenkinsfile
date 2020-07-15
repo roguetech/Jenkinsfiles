@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo "$CLUSTER_NAME"'
+                sh 'echo $CLUSTER_NAME'
             }
         }
     }
