@@ -25,22 +25,12 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                    dir('mis-qa-db-refresh') {  
-                }
-            }
-        }
-
         stage('Run') {
             steps {
-                milestone 1
-                dir('mis-qa-db-refresh') {
                   echo "Analysing the changes"
                   sh '''#!/usr/bin/env /bin/bash
                     echo "test"
                   '''
-                }
             }
         }
     }
