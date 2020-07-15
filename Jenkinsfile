@@ -26,9 +26,7 @@ pipeline {
 
     stages {
         stage('Run') {
-            steps {
-                bash 'echo "Hello World"'
-            }
+                sh 'echo "Hello World"'
         }
     }
 
