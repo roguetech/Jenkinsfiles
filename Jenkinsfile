@@ -32,7 +32,6 @@ pipeline {
                   JSON='{"source_env": "'$GIT_BRANCH'"}'
                   echo $JSON
                  '''
-                }
             }
         }
     }
