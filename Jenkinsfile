@@ -12,7 +12,6 @@ pipeline {
 
     options {
         disableConcurrentBuilds()
-        ansiColor('xterm')
         skipDefaultCheckout false
         timeout(time: 60, unit: 'MINUTES')
     }
