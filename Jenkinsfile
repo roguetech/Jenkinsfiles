@@ -21,7 +21,7 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'GIT_BRANCH', choices: ['master', CO_BRANCH_NAME], description: 'The branch to checkout for non shared qa specific code')
+        choice(name: 'GIT_BRANCH', choices: ['master', ''], description: 'The branch to checkout for non shared qa specific code')
     }
 
     stages {
