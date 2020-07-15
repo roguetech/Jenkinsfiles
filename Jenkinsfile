@@ -8,9 +8,7 @@ node('master') {
 }
 
 pipeline {
-    agent {
-       
-    }
+    agent none
 
     options {
         disableConcurrentBuilds()
