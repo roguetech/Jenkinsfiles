@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'CLUSTER_NAME', defaultValue: 'mis', description: '')
+    }
     stages {
         stage('Test') {
             steps {
-                sh 'echo "Hello World"'
+                sh 'echo "$CLUSTER_NAME"'
             }
         }
     }
