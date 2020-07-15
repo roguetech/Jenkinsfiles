@@ -5,7 +5,7 @@ def SCM_IDENIFIER = '0f462594-06c0-49ca-bba3-210135a8cc89'
 
 node('master') {
 
-    }
+    
 }
 pipeline {
     agent {
