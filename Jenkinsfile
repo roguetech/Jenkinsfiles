@@ -27,15 +27,11 @@ pipeline {
     stages {
         stage('Run') {
             steps {
-                script {
-                    dir('test') {
-                        sh '''#!/usr/bin/env /bin/bash
-                            echo "Analysing the changes"
-                            JSON='{"source_env": "'$GIT_BRANCH'"}'
-                            echo $JSON
-                        '''
-                    }
-                }
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
