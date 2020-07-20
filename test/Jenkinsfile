@@ -8,6 +8,11 @@ pipeline {
             steps {
                 withCredentials(bindings: [usernamePassword(credentialsId: 'api_key_jenkins_update', \
                                                              usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh 'echo $PASSWORD'
+                    // also available as a Groovy variable
+                    echo USERNAME
+                    // or inside double quotes for string interpolation
+                    echo "username is $USERNAME"          
                 }
             }
         }
@@ -16,6 +21,8 @@ pipeline {
                 sh "echo \"Hello World\""
                 sh 'echo $USERNAME'
                 sh 'echo $PASSWORD'
+                echo USERNAME
+                echo PASSWORD
             }
         }
         stage('test1') {
