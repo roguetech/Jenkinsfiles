@@ -14,8 +14,8 @@ pipeline {
         stage('test') {
             steps {
                 sh "echo \"Hello World\""
-                echo '$USERNAME'
-                echo '$PASSWORD'
+                sh 'echo $USERNAME'
+                sh 'echo $PASSWORD'
             }
         }
         stage('test1') {
