@@ -4,17 +4,21 @@ pipeline {
         string(name: 'CLUSTER_NAME', defaultValue: 'mis', description: '')
     }
     stages {
-        stage('Test') {
+        stage('creds') {
             steps {
                 withCredentials(bindings: [usernamePassword(credentialsId: 'api_key_jenkins_update', \
                                                              usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 }
             }
+        }
+        stage('test') {
             steps {
                 sh "echo \"Hello World\""
                 echo $USERNAME
                 echo $PASSWORD
             }
+        }
+        stage('test1') {
             steps {
                 sh 'echo $CLUSTER_NAME'
             }
