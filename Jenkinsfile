@@ -27,7 +27,13 @@ pipeline {
     stages {
         stage('Run') {
             steps {
+                withCredentials(bindings: [usernamePassword(credentialsId: 'api_key_jenkins_update', \
+                                                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD'')]) {
+            }
+            steps {
                 sh "echo \"Hello World\""
+                echo $USERNAME
+                echo $PASSWORD
             }
         }
     }
