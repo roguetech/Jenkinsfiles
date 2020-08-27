@@ -1,3 +1,5 @@
+def NODE_LABEL = 'master'
+
 pipeline {
     agent {
         docker {
