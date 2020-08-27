@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        docker {
+          image '483452016940.dkr.ecr.eu-west-1.amazonaws.com/goapp'
+          reuseNode true
+          args '-v /home/centos/.aws:/home/centos/.aws -v $HOME/.ssh:/home/centos/.ssh -v $HOME/.ssh:/home/jenkins/.ssh -v /home/centos/.aws:/home/jenkins/.aws -v $WORKSPACE:/home/centos/app -v /var/run/docker.sock:/var/run/docker.sock -w /home/centos/app'
+          label NODE_LABEL
+          registryCredentialsId "ecr:eu-west-1:test-role"
+          registryUrl "https://483452016940.dkr.ecr.eu-west-1.amazonaws.com"
+        }
+    }
+    stages {
+      stage('test') {
+        echo 'test'
+      }
+    }
+ }
